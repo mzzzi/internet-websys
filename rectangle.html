@@ -1,0 +1,37 @@
+<html>
+
+
+<head>
+
+</head>
+
+
+<body style="background-image:url(http://clipartfans.com/resource/rectangle-clip-art/rectangle-clip-art-80.jpg);"  repeat >
+<div>
+  <form action="" id="rectangleform" style="visibility:visible">
+    Length:<br>
+    <input type="number" name="length" value="" id="length"><br>
+    Breadth:<br>
+    <input type="number" name="breadth" value="" id="breadth"><br>
+    <input type="submit" value="Submit">
+  </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function () {
+$("#rectangleform").submit(function() {
+    if ($("input[type='submit']").val() == "Submit") {
+    	var length = $("#length").val();
+    	var breadth = $("#breadth").val();
+    	var area = breadth * length;
+    	var perimeter = 2*(length+breadth);
+        alert("Area = "+area+ " Perimeter = " + perimeter);
+        return false;
+    }
+});
+});
+</script>
+
+</body>
+</html>

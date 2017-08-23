@@ -1,0 +1,36 @@
+<html>
+
+
+<head>
+
+</head>
+
+
+<body style="background-image:url(http://www.clker.com/cliparts/4/Q/F/M/L/6/light-pink-square-th.png);"  repeat >
+<div>
+  <form action="" id="squareform" style="visibility:visible">
+  Side Length:<br>
+  <input type="number" name="side" value="" id="side"><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function () {
+$("#squareform").submit(function() {
+    if ($("input[type='submit']").val() == "Submit") {
+    	var side = $("#side").val();
+    	var area = side * side;
+    	var perimeter = 4 * side;
+        alert("Area = "+area+ " Perimeter = " + perimeter);
+        return false;
+    }
+});
+});
+</script>
+
+</body>
+</html>

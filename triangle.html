@@ -1,0 +1,38 @@
+<html>
+
+
+<head>
+
+</head>
+
+
+<body style="background-image:url(http://clipartfans.com/resource/triangle-clip-art/triangle-clip-art-37.jpg);"  repeat >
+<div>
+  <form action="" id="triangleform" style="visibility:visible">
+    Height:<br>
+    <input type="number" name="height" value="" id="height"><br>
+    Base:<br>
+    <input type="number" name="base" value="" id="base"><br>
+    <input type="submit" value="Submit">
+
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function () {
+$("#triangleform").submit(function() {
+    if ($("input[type='submit']").val() == "Submit") {
+    	var height = $("#height").val();
+    	var base = $("#base").val();
+    	var area = height * base;
+    	var perimeter = height;
+        alert("Area = "+area+ " Perimeter = " + perimeter);
+        return false;
+    }
+});
+});
+</script>
+
+</body>
+</html>
