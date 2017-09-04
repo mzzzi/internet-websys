@@ -1,0 +1,112 @@
+<html>
+
+<head> 
+    <title> Craigslist.    </title>
+    
+<link rel = "stylesheet"
+   type = "text/css"
+   href = "craig.css" />
+    
+    </head>
+    
+    <body>
+    
+ <div id="P1" class="tabcontent">
+  <h3>Craigslist</h3>
+  <p>The one stop shop for all your needs.</p>
+</div>
+  
+<button class="tablink" onclick="openTabs('P1', this, 'lightcoral')" id="defaultOpen">buy</button>
+<button class="tablink" onclick="openTabs('P1', this, 'lightcoral')" id="defaultOpen">sell</button>
+<button class="tablink" onclick="openTabs('P1', this, 'lightcoral')" id="defaultOpen">search</button>
+<button class="tablink" onclick="openTabs('P1', this, 'lightcoral')" id="defaultOpen">login</button>
+        
+
+  <section>
+  <article id ="map">
+  </article>
+        </section>
+        
+    </body>
+    
+    
+    <script>
+    
+    function openTabs(Tabnum, elmnt, color) {
+    // Hide all elements with class="tabcontent" by default */
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove the background color of all tablinks/buttons
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+
+    // Show the specific tab content
+    document.getElementById(Tabnum).style.display = "block";
+
+    // Add the specific color to the button used to open the tab content
+    elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+    </script>
+    
+<script>
+      function initMap() {
+        var uluru = {lat: 28.5253344, lng: 77.5782291};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: uluru
+        });
+        setMarkers(map);
+
+      }
+      var beaches = [
+  ['Gangtok', 48.6758345, 45.5776024, 4, 'city.html'],
+  ['Bareilley', 12.6754627, 75.6504706, 5, 'city.html'],
+  ['Pachmarhi', 66.898671, 72.0508116, 'city.html']
+];
+      function setMarkers(map) {
+  var image = {
+    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    size: new google.maps.Size(20, 32),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 32)
+  };
+  var shape = {
+    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+    type: 'poly'
+  };
+  for (var i = 0; i < beaches.length; i++) {
+    var beach = beaches[i];
+    var marker = new google.maps.Marker({
+      position: {lat: beach[1], lng: beach[2]},
+      map: map,
+      icon: image,
+      shape: shape,
+      title: beach[0],
+      zIndex: beach[3],
+      url: beach[4]
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+    window.location.href = this.url;
+});
+  }
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLEYnzwzuO3FWcyBgmUUaqpRoTEWd8hb0&callback=initMap">
+    </script>
+  </section>
+
+        
+        
+        
+
+</html>
